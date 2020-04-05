@@ -1,7 +1,7 @@
-@extends('layouts/menu')
+@extends('layouts/master')
 
 @section('content')
-<h1>Contact Us</h1>
+<h1>Contactez-moi</h1>
 
 <div class="container">
 	<div class="row">

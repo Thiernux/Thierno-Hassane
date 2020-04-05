@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/', [
-	'as' =>'root_path',
+	'as' =>'root_path',	// redirect link to the home page
 	'uses' => 'HomeController@home']);
 
 Route::get('/posts/{post_name}', [
@@ -33,8 +33,5 @@ Route::post('contact', [
 	'as' =>'contact_path',
 	'uses' => 'ContactFormController@store']);
 
-/*Route::get('/', function () {
-    return view('welcome');
-});*/
 
 

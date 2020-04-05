@@ -15,14 +15,24 @@ class ContactFormController extends Controller
     	return view('pages/contact');
     }
 
-    public function store(ContactFormRequest $request)
+    public function store(Request $request)
     {
+        $this->validate($request, [
+             'name'=> 'required|min:3',
+            'email'=> 'required|email',
+            'msg'=> 'required|min:10'
+        ]);
 
-    	$message = Messages::create($request->only('name', 'email', 'msg'));
+    	$messages = new ContactFormMail($request->name, $request->email, $request->msg);
+
+        // Saving mail data in the database by using the model Messages
+        Messages::create($request->only('name', 'email', 'msg'));
 
     	Mail::to('test@test.com')
-    		->send(new ContactFormMail($message));
+    		->send($messages);
 
+
+         // redirect to the home page after sending the mail   
     	flashy('Merci pour votre message ! Nous vous répondrons dans les plus brefs délais !');
     	return redirect()->route('root_path');
     }

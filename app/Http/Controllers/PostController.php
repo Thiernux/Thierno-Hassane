@@ -9,11 +9,9 @@ use Illuminate\Database\Schema\Blueprint;
 class PostController extends Controller
 {
     public function show($post_name) {
-   $post = \App\Post::where('post_name',$post_name)->first(); //get first post with post_nam == $post_name
+   $posts = \App\Post::findOrFail($post_name); //get first post with post_nam == $post_name
   
-   return view('pages/posts',array( //Pass the post to the view
-       'post' => $post
-   ));
+   return view('pages/posts', compact('posts'));
 }
 
 

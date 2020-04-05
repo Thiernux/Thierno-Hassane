@@ -1,10 +1,10 @@
-@extends('layouts/menu')
+@extends('layouts/master')
 
 @section('content')
 
-{{ $post->post_content }}
+{{ $posts->post_content }}
 <br>
 <br>
-{{ $post->post_date }}
+{{ $posts->post_date }}
 
 @endsection
