@@ -9,7 +9,7 @@
 
 	  	<br>
 
-	  	<p> Posted by Thierno on {{ $post->post_date }} </p>
+	  	<p> Posted on {{ $post->post_date }} </p>
 	  </li>
 
 	@endforeach
