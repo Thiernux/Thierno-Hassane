@@ -9,7 +9,7 @@
 
 		  	<br>
 
-<<<<<<< HEAD
+
 	  	<br>
 
 	  	<p> Posted on {{ $post->post_date }} </p>
@@ -17,11 +17,8 @@
 
 	@endforeach
 	</ul>
-=======
-		  	<p> Posted by Thierno on {{ $post->post_date }} </p>
-		  </li>
-		@endforeach
-		</ul>
-	
->>>>>>> SassLaravelMix
-@endsection
+
+		  
+	@endsection
+
+
