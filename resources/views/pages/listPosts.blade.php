@@ -1,12 +1,15 @@
 @extends('layouts/master')
 
 @section('content')
-	<ul>
-	@foreach ( $posts as $post )
+	
+		<ul>
+		@foreach ( $posts as $post )
+		  <li>
+		  	<a href="{{ route('post_path', $post) }}"> {{ $post->post_title }} </a>
 
-	  <li>
-	  	<a href="{{ route('post_path', $post) }}"> {{ $post->post_title }} </a>
+		  	<br>
 
+<<<<<<< HEAD
 	  	<br>
 
 	  	<p> Posted on {{ $post->post_date }} </p>
@@ -14,4 +17,11 @@
 
 	@endforeach
 	</ul>
+=======
+		  	<p> Posted by Thierno on {{ $post->post_date }} </p>
+		  </li>
+		@endforeach
+		</ul>
+	
+>>>>>>> SassLaravelMix
 @endsection
