@@ -1,79 +1,84 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
+                PROJET MINI BLOG SINGLE PAGE THIERNO HASSANE BARRY
+1.	Description du projet
+Dans le cadre de mon cours de programmation côté serveur que je suis à l'UGA, je réalise un mini Blog à l'aide du Framework PHP Laravel.
+Le Blog est composé :
+•	d'une page d’Accueil affichant un texte de bienvenue et les 3 derniers articles
+•	La page Articles, qui affiche une liste de tous les articles
+•	La page d’un article, qui s'affiche après qu’on ai cliqué dans la liste sur la page d’accueil.
+•	Une page de contact avec un formulaire
+•	Toutes les pages utilisent le même en-tête (header) et pied de page (footer).
+•	J'ai crée un dossier partials contenant les composants navbar, main (master ici) et footer
+•	Vous pouvez rajouter des éléments supplémentaires au footer si vous le souhaitez.
+2.	Pré-requis pour utiliser le projet
+Pour installer et exécuter le projet sur votre ordinateur, il vous faudra disposer des programmes suivants : 
+•	Laravel version >= 7.0
+•	PHP >= 7.2.5
+•	BCMath PHP Extension
+•	Ctype PHP Extension
+•	Fileinfo PHP extension
+•	JSON PHP Extension
+•	Mbstring PHP Extension
+•	OpenSSL PHP Extension
+•	PDO PHP Extension
+•	Tokenizer PHP Extension
+•	XML PHP Extension
+•	sqlite
+•	Nodjs, npm
+Il faudra vérifier que ces extensions sont décommentées sur php.ini et modifier vérifier aussi votre variable d'environnement sur le système de configuration de votre ordinateur.
+3.	Installation
+Pour installer ce programme, vous pouvez soit :
+•	le cloner via l'icone "clone or download"
+•	télécharger le zip 
+Choisissez bien le répertoire dans lequel installer le programme et prenez soins que les programmes requis soient reconnus dans ce répertoire/dossier.
+4.	Parties implémentées
+Pour tester les parties et fonctionnalités que j'ai implémentées, veuillez démarrer tout d'abord votre serveur local en tapant sur votre consol depuis le répertoire de l'application Blog, la commande : php artisan serve puis visiter le lien  http://127.0.0.1:8000
+Vous allez vous trouver sur la page d'accueil du blog. Les fonctionnalités que j'ai implémentées sont :
+•	La page d'accueil : qui affiche un texte de bienvenue et les 3 derniers articles publiés. elle est composée d'une template html home.blade
+•	la page liste des articles/posts : affichant une liste des titres de tous les articles publiés. Il suffit de cliquer sur un titre pour accéder à l'article complet.
+•	une page posts :  qui affiche un article lorsqu'on clique sur le titre figurant sur la liste des posts. Il s'agit de la template posts.blade
+•	une page de contact : avec un formulaire de contact. Pour la tester, il vous faut un compte mailtrap.io, si vous en avez pas, inscrivez-vous c'est très simple en suivant les instructions. Ensuite copiez le username et le mot de passe pour les renseigner sur votre fichier env. configurez votre fichier .env de comme ceci :
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.mailtrap.io
+MAIL_PORT=2525
+MAIL_USERNAME='lk5021a6dfdsf'
+MAIL_PASSWORD='jds9aa3e61esdfd'
+MAIL_ENCRYPTION=null
+MAIL_FROM_NAME="${APP_NAME}"
+Ensuite, faites le test en renseignant le formulaire comme c'est requis et envoyer. On utilise ici le protocole smtp pour l'envoi des mails. Vous recevrez le mail dans votre compte mailtrap et dans votre base de données sqlite (oubliez pas de configurez la partie database du fichier .env de sorte que vous puissiez accéder à votre base de donnée, et lancer les migrations avec php artisan migrate Vous pouvez configurer phpLiteAdmin en visitant ce lien : http://127.0.0.1:8000/phpliteadmin.php
+Tous les boutons du menu et les liens de toutes les pages sont fonctionnelles.
+5.	Fonctionnalités implémentées
+5.1.	Tests-Unitaires
+J'ai pu réaliser quelques tests unitaires, notamment le formulaire de contact par exemple, la classe Maillable et le Markdown.
+Vous pouvez essayer les tests en commentant ceux qui ne marchent pas (les dusks, homepage et Database par exemple) et lancer la commande vendor\bin\phpunit
+5.2.	Intégration graphique responsive avec Laravel Mix, Sass de Bootstrap
+utilisation : précisez que vous voulez compiler du CSS ou du JS :
+const mix = require('laravel-mix');
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+/*
+ |--------------------------------------------------------------------------
+ | Mix Asset Management
+ |--------------------------------------------------------------------------
+ |
+ | Mix provides a clean, fluent API for defining some Webpack build steps
+ | for your Laravel application. By default, we are compiling the Sass
+ | file for the application as well as bundling up all the JS files.
+ |
+ */
 
-## About Laravel
+mix.js('resources/js/app.js', 'public/js')
+   .sass('resources/sass/app.scss', 'public/css');
+  .sass('resources/sass/main.scss', 'public/css');
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+ Ensuite, si vous utilisez du style css dans le fichier main.scss, lancez en mode dev via la commande :  npm run dev
+Puis le mode watch afin de compiler le css via la commande : npm run watch
+Le processus est le même pour le JavaScript.
+6.	Difficultés/Remarques :
+Je n'ai pas pu utiliser la page de validation des requêtes ContactFormRequest qui hérite des classes FormRequest et Request. J'ai donc directement injecté la requête de validation dans le controller. Par contre, le maillable avec le markdown fonctionnent bien.
+Cependant, je n'ai pas pu réaliser certains tests car je n'ai pas pu appliquer le mock.
+Le Dusk aussi n'a pas fonctionné, notamment la version 81.
+Je compte améliorer cette partie car mon stage porte sur un projet de développement, migration et tests unitaires sur laravel.
+Ce projet m'a aussi permis de découvrir le framework Bootstrap et d'avoir une idée sur Vue.js et React.js.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
-- [Hyper Host](https://hyper.host)
-- [Appoly](https://www.appoly.co.uk)
-- [OP.GG](https://op.gg)
-- [云软科技](http://www.yunruan.ltd/)
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
