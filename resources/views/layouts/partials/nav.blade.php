@@ -1,21 +1,20 @@
-<nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
-  
-  <a class="navbar-brand" href="{{ route('root_path') }}">Thiernux</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
 
-  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="{{ route('root_path') }}">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{{ route('listPosts_path') }}">Publications</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{{ route('contact_path') }}">Contact</a>
-      </li>
-    </ul>
+<nav class="navbar navbar-expand-sm bg-secondary text-uppercase fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand js-scroll-trigger" href="{{ route('root_path') }}">Thiernux</a>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('root_path') }}">Home</a></li>
+          <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('listPosts_path') }}">Publications</a></li>
+          <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('contact_path') }}">Contact</a></li>
+        </ul>
+     </div>
   </div>
 </nav>
+
+
+
+
+
+
+

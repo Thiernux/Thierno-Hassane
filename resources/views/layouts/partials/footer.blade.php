@@ -1,6 +1,4 @@
-<footer class="text-center" class="footer mt-auto py-7" class="static-bottom">
-  
-  <div class="container">
+<footer class="text-center" class="footer mt-auto" class="container">
     
     <span class="text-muted"> 
     	
@@ -9,5 +7,4 @@
     
     </span>
   
-  </div>
 </footer>

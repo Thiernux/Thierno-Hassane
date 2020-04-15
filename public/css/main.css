@@ -1,16 +1,24 @@
 body {
-  padding-top: 60px;
+  padding-top: 90px;
 }
 
-.starter-template {
-  padding: 40px 15px;
-  text-align: left;
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
 }
 
-.navbar-fixed-top {
-  position: fixed;
-  right: 0;
-  left: 0;
-  z-index: 1030;
+.nav-link {
+  color: white;
+  font-size: 1.5rem;
+}
+
+.navbar-brand {
+  color: white;
+  font-size: 3.5rem;
+}
+
+.main {
+  padding-top: 40px;
 }
 
